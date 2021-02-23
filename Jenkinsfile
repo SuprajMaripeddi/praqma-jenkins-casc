@@ -8,7 +8,7 @@ node {
          userRemoteConfigs: scm.userRemoteConfigs
     ])
     stage('scm'){
-        echo 'Pulling... ' + env.GIT_BRANCH
+        println "${BRANCH_NAME}"
 
     }
     
