@@ -1,6 +1,10 @@
 node {
-    stage('shell') {
-        echo 'Pulling...' + env.BRANCH_NAME
-        checkout scm
+    checkout([
+         $class: 'GitSCM',
+         branches: scm.branches,
+         doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+         extensions: scm.extensions,
+         userRemoteConfigs: scm.userRemoteConfigs
+    ])
+ 
     }
-}
