@@ -1,8 +1,6 @@
 node {
-    stage('checkout'){
-        checkout scm
-    }
     stage('shell') {
-                sh 'echo env.BRANCH_NAME' 
+        echo 'Pulling...' + env.BRANCH_NAME
+        checkout scm
     }
 }
