@@ -1,3 +1,10 @@
 node {
-    checkout scm
+    stage('checkout'){
+        checkout scm
+    }
+    stage('shell') {
+            steps {
+                sh 'echo env.BRANCH_NAME' 
+            }
+    }
 }
