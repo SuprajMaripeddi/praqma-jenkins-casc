@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                echo 'Pulling... ' + env.GIT_BRANCH
+                echo 'getting... ' + env.GIT_BRANCH
 
             }
         }
