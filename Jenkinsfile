@@ -1,23 +1,18 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Build') {
+        stage('Ok') {
             steps {
-                checkout scm
-                echo 'getting... ' + env.GIT_BRANCH
-                echo 'getting... ' + env.CHANGE_ID
-
+                echo "Ok"
             }
         }
     }
     post {
-        failure {
-            script {
-                // CHANGE_ID is set only for pull requests, so it is safe to access the pullRequest global variable
-                if (env.CHANGE_ID) {
-                    pullRequest.addLabel('Build Failed')
-                }
-            }
+        always {
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
     }
 }
+                //echo 'getting... ' + env.GIT_BRANCH
+
