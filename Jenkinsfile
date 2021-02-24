@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Hello World'
+                checkout scm
+                echo 'getting... ' + env.GIT_BRANCH
+
             }
         }
     }
