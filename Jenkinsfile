@@ -5,6 +5,7 @@ pipeline {
             steps {
                 checkout scm
                 echo 'getting... ' + env.GIT_BRANCH
+                echo 'getting... ' + env.CHANGE_ID
 
             }
         }
